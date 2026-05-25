@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import IntroSplash from "@/components/IntroSplash";
+import LandingScreen from "@/components/LandingScreen";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -65,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <body className="bg-aldo-bg text-aldo-cream font-sans">
-        <IntroSplash />
+        <LandingScreen />
         <Navbar />
         <main>{children}</main>
         <Footer />
