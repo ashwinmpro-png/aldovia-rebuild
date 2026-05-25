@@ -5,15 +5,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail, ChevronRight, Home } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronRight, ChevronDown } from "lucide-react";
 import { NAV_LINKS, CONTACT_INFO } from "@/lib/content";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || pathname === "/home";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const [expandedMobile, setExpandedMobile] = useState<Record<string, boolean>>({});
+  const [hoverGroup, setHoverGroup] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -34,7 +35,7 @@ export default function Navbar() {
   }, [menuOpen]);
 
   const toggleGroup = (label: string) =>
-    setExpanded((prev) => ({ ...prev, [label]: !prev[label] }));
+    setExpandedMobile((prev) => ({ ...prev, [label]: !prev[label] }));
 
   const condensed = scrolled || !isHome;
 
@@ -68,7 +69,7 @@ export default function Navbar() {
         style={{ borderColor: condensed ? "rgba(216,201,168,0.08)" : "transparent" }}
       >
         <div className="flex items-center justify-between px-6 md:px-10 py-3">
-          <Link href="/" aria-label="Aldovia home" className="block relative w-[120px] h-[80px] md:w-[140px] md:h-[90px]">
+          <Link href="/home" aria-label="Aldovia home" className="block relative w-[110px] h-[72px] md:w-[140px] md:h-[90px]">
             <Image
               src="/brand/logo-beige.png"
               alt="Aldovia Resort & Convention"
@@ -79,32 +80,76 @@ export default function Navbar() {
             />
           </Link>
 
-          <div className="flex items-center gap-3 md:gap-4">
-            <Link
-              href="/"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-3 border border-aldo-beige/40 text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors"
-              style={{ letterSpacing: "0.22em" }}
-            >
-              <Home className="w-4 h-4" />
-              Home
-            </Link>
-            <Link
-              href="/contact-us"
-              className="hidden md:inline-flex items-center px-6 py-3 border border-aldo-beige bg-aldo-beige text-aldo-bg text-[11px] uppercase hover:bg-transparent hover:text-aldo-cream transition-colors"
-              style={{ letterSpacing: "0.22em" }}
-            >
-              Book Now
-            </Link>
-            <button
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
-              className="md:hidden flex items-center gap-3 group cursor-pointer"
-            >
-              <span className="w-11 h-11 rounded-full flex items-center justify-center border border-[rgba(216,201,168,0.5)] group-hover:bg-aldo-beige group-hover:border-aldo-beige transition-colors">
-                <Menu className="w-5 h-5 text-aldo-cream group-hover:text-aldo-bg transition-colors" />
-              </span>
-            </button>
-          </div>
+          {/* Desktop nav */}
+          <nav
+            className="hidden md:flex items-center gap-1 lg:gap-2"
+            onMouseLeave={() => setHoverGroup(null)}
+          >
+            {NAV_LINKS.map((link) => {
+              const hasChildren = !!link.children?.length;
+              const isOpen = hoverGroup === link.label;
+
+              return (
+                <div
+                  key={link.label}
+                  className="relative"
+                  onMouseEnter={() => setHoverGroup(hasChildren ? link.label : null)}
+                >
+                  {hasChildren ? (
+                    <button
+                      className="px-4 lg:px-5 py-3 text-[11px] uppercase text-aldo-cream hover:text-white inline-flex items-center gap-1 cursor-pointer"
+                      style={{ letterSpacing: "0.22em" }}
+                    >
+                      {link.label}
+                      <ChevronDown className="w-3 h-3 opacity-70" />
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.path ?? "/home"}
+                      className="block px-4 lg:px-5 py-3 text-[11px] uppercase text-aldo-cream hover:text-white"
+                      style={{ letterSpacing: "0.22em" }}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+
+                  <AnimatePresence>
+                    {hasChildren && isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute left-1/2 -translate-x-1/2 top-full mt-1 min-w-[220px] bg-[rgba(14,13,11,0.97)] backdrop-blur-md border border-[rgba(216,201,168,0.15)] py-3"
+                      >
+                        {link.children!.map((c) => (
+                          <Link
+                            key={c.label}
+                            href={c.path}
+                            className="block px-6 py-2.5 text-[12px] uppercase text-aldo-muted hover:text-white hover:bg-aldo-beige/5 transition-colors"
+                            style={{ letterSpacing: "0.22em" }}
+                          >
+                            {c.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
+            className="md:hidden flex items-center gap-3 group cursor-pointer"
+          >
+            <span className="w-11 h-11 rounded-full flex items-center justify-center border border-[rgba(216,201,168,0.5)] group-hover:bg-aldo-beige group-hover:border-aldo-beige transition-colors">
+              <Menu className="w-5 h-5 text-aldo-cream group-hover:text-aldo-bg transition-colors" />
+            </span>
+          </button>
         </div>
       </motion.header>
 
@@ -150,12 +195,12 @@ export default function Navbar() {
                           <span className="font-display font-light text-2xl text-aldo-cream group-hover:text-white transition">
                             {link.label}
                           </span>
-                          <motion.span animate={{ rotate: expanded[link.label] ? 90 : 0 }}>
+                          <motion.span animate={{ rotate: expandedMobile[link.label] ? 90 : 0 }}>
                             <ChevronRight className="w-4 h-4 text-aldo-beige" />
                           </motion.span>
                         </button>
                         <AnimatePresence initial={false}>
-                          {expanded[link.label] && (
+                          {expandedMobile[link.label] && (
                             <motion.div
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: "auto", opacity: 1 }}
@@ -182,7 +227,7 @@ export default function Navbar() {
                       </>
                     ) : (
                       <Link
-                        href={link.path ?? "/"}
+                        href={link.path ?? "/home"}
                         className="block py-3 font-display font-light text-2xl text-aldo-cream hover:text-white transition"
                       >
                         {link.label}

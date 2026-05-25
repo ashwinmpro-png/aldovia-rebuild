@@ -13,12 +13,12 @@ export type NavChild = { label: string; path: string };
 export type NavItem = { label: string; path?: string; children?: NavChild[] };
 
 export const NAV_LINKS: NavItem[] = [
-  { label: "Home", path: "/" },
+  { label: "Home", path: "/home" },
   {
     label: "Stay",
     children: [
-      { label: "Rooms", path: "/rooms" },
-      { label: "Experiences & Packages", path: "/experience" },
+      { label: "Rooms & Suites", path: "/rooms" },
+      { label: "Experience & Packages", path: "/experience" },
       { label: "Dining", path: "/dining" },
       { label: "Activities", path: "/activities" },
     ],
@@ -26,9 +26,9 @@ export const NAV_LINKS: NavItem[] = [
   {
     label: "Events",
     children: [
-      { label: "Weddings", path: "/wedding" },
-      { label: "Corporate Events", path: "/corporate" },
       { label: "Venues", path: "/venues" },
+      { label: "Weddings", path: "/wedding" },
+      { label: "Corporate", path: "/corporate" },
     ],
   },
   { label: "Convention Center", path: "/venues" },
@@ -37,9 +37,12 @@ export const NAV_LINKS: NavItem[] = [
     children: [
       { label: "About Us", path: "/about-us" },
       { label: "Contact Us", path: "/contact-us" },
+      { label: "Blog", path: "#" },
     ],
   },
 ];
+
+export const RENOVATION_NOTICE = "Swiss Town Square is closed for renovation. Apologies for the inconvenience.";
 
 export const CONTACT_INFO = {
   phone1: "+91 80 3507 7000",

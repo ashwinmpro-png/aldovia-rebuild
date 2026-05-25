@@ -4,6 +4,7 @@ import "./globals.css";
 import LandingScreen from "@/components/LandingScreen";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import RenovationBar from "@/components/RenovationBar";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -67,6 +68,7 @@ export default function RootLayout({
       <body className="bg-aldo-bg text-aldo-cream font-sans">
         <LandingScreen />
         <Navbar />
+        <RenovationBar />
         <main>{children}</main>
         <Footer />
       </body>
