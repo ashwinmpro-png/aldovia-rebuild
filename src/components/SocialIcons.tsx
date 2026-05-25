@@ -31,3 +31,28 @@ export function LinkedinGlyph(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function YoutubeGlyph(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <rect x="2.5" y="6" width="19" height="12" rx="3" />
+      <path d="M10.5 9.5 14.5 12l-4 2.5z" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function ThreadsGlyph(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M16 8c-.7-2-2.4-3-4.5-3-3 0-5 2.2-5 6.5S8 18 11.5 18c2.5 0 4-1.2 4.5-2.5.5-1.4 0-3-1.5-3.5-1.4-.5-3.5 0-4 1.5" />
+    </svg>
+  );
+}
+
+export function XGlyph(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M4 4l16 16M20 4 4 20" />
+    </svg>
+  );
+}

@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail, ChevronRight } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronRight, Home } from "lucide-react";
 import { NAV_LINKS, CONTACT_INFO } from "@/lib/content";
 
 export default function Navbar() {
@@ -39,12 +40,22 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="hidden md:flex items-center justify-end gap-6 px-8 py-2 text-[11px] uppercase fixed top-0 left-0 right-0 z-40 bg-[#0a0907] text-aldo-beige border-b border-[rgba(216,201,168,0.08)]" style={{ letterSpacing: "0.22em" }}>
-        <a href={`tel:${CONTACT_INFO.phone1.replace(/\s/g, "")}`} className="hover:text-white transition">{CONTACT_INFO.phone1}</a>
+      {/* Top contact bar - desktop only */}
+      <div
+        className="hidden md:flex items-center justify-end gap-6 px-8 py-2 text-[11px] uppercase fixed top-0 left-0 right-0 z-40 bg-[#0a0907] text-aldo-beige border-b border-[rgba(216,201,168,0.08)]"
+        style={{ letterSpacing: "0.22em" }}
+      >
+        <a href={`tel:${CONTACT_INFO.phone1.replace(/\s/g, "")}`} className="flex items-center gap-2 hover:text-white transition">
+          <Phone className="w-3 h-3" /> {CONTACT_INFO.phone1}
+        </a>
         <span className="opacity-30">|</span>
-        <a href={`tel:${CONTACT_INFO.phone2.replace(/\s/g, "")}`} className="hover:text-white transition">{CONTACT_INFO.phone2}</a>
+        <a href={`tel:${CONTACT_INFO.phone2.replace(/\s/g, "")}`} className="flex items-center gap-2 hover:text-white transition">
+          <Phone className="w-3 h-3" /> {CONTACT_INFO.phone2}
+        </a>
         <span className="opacity-30">|</span>
-        <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-white transition">{CONTACT_INFO.email}</a>
+        <a href={`mailto:${CONTACT_INFO.email}`} className="flex items-center gap-2 hover:text-white transition">
+          <Mail className="w-3 h-3" /> {CONTACT_INFO.email}
+        </a>
       </div>
 
       <motion.header
@@ -56,24 +67,44 @@ export default function Navbar() {
         className="fixed left-0 right-0 z-40 md:top-[34px] top-0 border-b"
         style={{ borderColor: condensed ? "rgba(216,201,168,0.08)" : "transparent" }}
       >
-        <div className="flex items-center justify-between px-6 md:px-10 py-4">
-          <Link href="/" className="flex items-center gap-3">
-            <span className="font-display font-light text-2xl md:text-3xl text-aldo-beige" style={{ letterSpacing: "0.2em" }}>
-              ALDOVIA
-            </span>
+        <div className="flex items-center justify-between px-6 md:px-10 py-3">
+          <Link href="/" aria-label="Aldovia home" className="block relative w-[120px] h-[80px] md:w-[140px] md:h-[90px]">
+            <Image
+              src="/brand/logo-beige.png"
+              alt="Aldovia Resort & Convention"
+              fill
+              priority
+              sizes="140px"
+              className="object-contain object-left"
+            />
           </Link>
-          <button
-            onClick={() => setMenuOpen(true)}
-            aria-label="Open menu"
-            className="flex items-center gap-3 group cursor-pointer"
-          >
-            <span className="hidden md:inline text-[11px] uppercase text-aldo-beige" style={{ letterSpacing: "0.32em" }}>
-              Menu
-            </span>
-            <span className="w-11 h-11 rounded-full flex items-center justify-center border border-[rgba(216,201,168,0.5)] group-hover:bg-aldo-beige group-hover:border-aldo-beige transition-colors">
-              <Menu className="w-5 h-5 text-aldo-cream group-hover:text-aldo-bg transition-colors" />
-            </span>
-          </button>
+
+          <div className="flex items-center gap-3 md:gap-4">
+            <Link
+              href="/"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-3 border border-aldo-beige/40 text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors"
+              style={{ letterSpacing: "0.22em" }}
+            >
+              <Home className="w-4 h-4" />
+              Home
+            </Link>
+            <Link
+              href="/contact-us"
+              className="hidden md:inline-flex items-center px-6 py-3 border border-aldo-beige bg-aldo-beige text-aldo-bg text-[11px] uppercase hover:bg-transparent hover:text-aldo-cream transition-colors"
+              style={{ letterSpacing: "0.22em" }}
+            >
+              Book Now
+            </Link>
+            <button
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open menu"
+              className="md:hidden flex items-center gap-3 group cursor-pointer"
+            >
+              <span className="w-11 h-11 rounded-full flex items-center justify-center border border-[rgba(216,201,168,0.5)] group-hover:bg-aldo-beige group-hover:border-aldo-beige transition-colors">
+                <Menu className="w-5 h-5 text-aldo-cream group-hover:text-aldo-bg transition-colors" />
+              </span>
+            </button>
+          </div>
         </div>
       </motion.header>
 

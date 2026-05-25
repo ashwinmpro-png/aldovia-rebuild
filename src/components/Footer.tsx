@@ -1,32 +1,141 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { CONTACT_INFO, BRAND } from "@/lib/content";
-import { InstagramGlyph, FacebookGlyph, LinkedinGlyph } from "./SocialIcons";
+import {
+  InstagramGlyph,
+  FacebookGlyph,
+  LinkedinGlyph,
+  YoutubeGlyph,
+  ThreadsGlyph,
+  XGlyph,
+} from "./SocialIcons";
 
 export default function Footer() {
   const socials = [
     { Icon: InstagramGlyph, href: CONTACT_INFO.instagram, label: "Instagram" },
     { Icon: FacebookGlyph, href: CONTACT_INFO.facebook, label: "Facebook" },
     { Icon: LinkedinGlyph, href: CONTACT_INFO.linkedin, label: "LinkedIn" },
+    { Icon: YoutubeGlyph, href: "#", label: "YouTube" },
+    { Icon: ThreadsGlyph, href: "#", label: "Threads" },
+    { Icon: XGlyph, href: "#", label: "X" },
+  ];
+
+  const columns: { heading: string; items: { label: string; href: string }[] }[] = [
+    {
+      heading: "Stay",
+      items: [
+        { label: "Rooms & Suites", href: "/rooms" },
+        { label: "Experience & Packages", href: "/experience" },
+        { label: "Dining", href: "/dining" },
+        { label: "Activities", href: "/activities" },
+      ],
+    },
+    {
+      heading: "Events",
+      items: [
+        { label: "Venues", href: "/venues" },
+        { label: "Weddings", href: "/wedding" },
+        { label: "Corporate", href: "/corporate" },
+        { label: "Convention Center", href: "/venues" },
+      ],
+    },
+    {
+      heading: "Discover",
+      items: [
+        { label: "About Us", href: "/about-us" },
+        { label: "Testimonials", href: "/about-us#testimonials" },
+        { label: "Contact Us", href: "/contact-us" },
+        { label: "Blog", href: "#" },
+      ],
+    },
   ];
 
   return (
     <footer className="bg-[#0a0907] border-t border-[rgba(216,201,168,0.08)]">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
-        <div>
-          <div className="font-display font-light text-3xl mb-3 text-aldo-beige" style={{ letterSpacing: "0.2em" }}>
-            ALDOVIA
+      <div className="max-w-7xl mx-auto px-6 md:px-10 pt-20 pb-10">
+        {/* Big centered wordmark */}
+        <div className="flex justify-center mb-16">
+          <div className="relative w-[280px] h-[180px] md:w-[360px] md:h-[230px]">
+            <Image
+              src="/brand/logo-cream.png"
+              alt="Aldovia Resort & Convention"
+              fill
+              sizes="(max-width: 768px) 280px, 360px"
+              className="object-contain"
+            />
           </div>
-          <div className="text-xs uppercase mb-6 text-aldo-muted" style={{ letterSpacing: "0.32em" }}>
-            Resort & Convention
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
+          {columns.map((col) => (
+            <div key={col.heading}>
+              <div
+                className="uppercase text-[11px] mb-4 text-aldo-cream font-medium"
+                style={{ letterSpacing: "0.2em" }}
+              >
+                {col.heading}
+              </div>
+              <div className="w-8 h-px bg-aldo-beige/40 mb-5" />
+              <ul className="space-y-3 text-sm text-aldo-muted">
+                {col.items.map((it) => (
+                  <li key={it.label}>
+                    <Link href={it.href} className="hover:text-white transition">
+                      {it.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <div>
+            <div
+              className="uppercase text-[11px] mb-4 text-aldo-cream font-medium"
+              style={{ letterSpacing: "0.2em" }}
+            >
+              Contact
+            </div>
+            <div className="w-8 h-px bg-aldo-beige/40 mb-5" />
+            <ul className="space-y-4 text-sm text-aldo-muted">
+              <li className="flex items-start gap-3">
+                <Phone className="w-4 h-4 mt-0.5 text-aldo-beige flex-shrink-0" />
+                <div>
+                  <a href={`tel:${CONTACT_INFO.phone1.replace(/\s/g, "")}`} className="block hover:text-white">
+                    {CONTACT_INFO.phone1} ({CONTACT_INFO.phone1Label})
+                  </a>
+                  <a href={`tel:${CONTACT_INFO.phone2.replace(/\s/g, "")}`} className="block hover:text-white">
+                    {CONTACT_INFO.phone2} ({CONTACT_INFO.phone2Label})
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail className="w-4 h-4 mt-0.5 text-aldo-beige flex-shrink-0" />
+                <a href={`mailto:${CONTACT_INFO.email}`} className="underline underline-offset-4 hover:text-white">
+                  {CONTACT_INFO.email}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 mt-0.5 text-aldo-beige flex-shrink-0" />
+                <span>
+                  {CONTACT_INFO.addressShort.map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
+                </span>
+              </li>
+            </ul>
           </div>
-          <p className="text-sm leading-relaxed text-aldo-muted">
-            Set across seventy acres near Bangalore, Aldovia is where celebrations find their setting and grace finds every guest.
-          </p>
-          <div className="text-[10px] uppercase text-aldo-muted/70 mt-4" style={{ letterSpacing: "0.32em" }}>
+        </div>
+
+        <div className="mt-16 border-t border-[rgba(216,201,168,0.08)] pt-8">
+          <div
+            className="text-center uppercase text-[11px] text-aldo-muted mb-6"
+            style={{ letterSpacing: "0.32em" }}
+          >
             {BRAND.former}
           </div>
-          <div className="flex items-center gap-3 mt-6">
+
+          <div className="flex justify-center gap-3 mb-6">
             {socials.map(({ Icon, href, label }) => (
               <a
                 key={label}
@@ -34,74 +143,15 @@ export default function Footer() {
                 aria-label={label}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="w-9 h-9 rounded-full border border-[rgba(216,201,168,0.4)] text-aldo-beige flex items-center justify-center hover:bg-aldo-beige hover:text-aldo-bg transition-colors"
+                className="w-9 h-9 rounded-full bg-aldo-beige/10 text-aldo-cream flex items-center justify-center hover:bg-aldo-beige hover:text-aldo-bg transition-colors"
               >
                 <Icon className="w-4 h-4" />
               </a>
             ))}
           </div>
-        </div>
 
-        <div>
-          <div className="uppercase text-[10px] text-aldo-beige mb-5" style={{ letterSpacing: "0.42em" }}>
-            Stay
-          </div>
-          <ul className="space-y-3 text-sm text-aldo-muted">
-            <li><Link href="/rooms" className="hover:text-white transition">Rooms & Suites</Link></li>
-            <li><Link href="/experience" className="hover:text-white transition">Experiences</Link></li>
-            <li><Link href="/dining" className="hover:text-white transition">Dining</Link></li>
-            <li><Link href="/activities" className="hover:text-white transition">Activities</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <div className="uppercase text-[10px] text-aldo-beige mb-5" style={{ letterSpacing: "0.42em" }}>
-            Events
-          </div>
-          <ul className="space-y-3 text-sm text-aldo-muted">
-            <li><Link href="/wedding" className="hover:text-white transition">Weddings</Link></li>
-            <li><Link href="/corporate" className="hover:text-white transition">Corporate Events</Link></li>
-            <li><Link href="/venues" className="hover:text-white transition">Venues</Link></li>
-            <li><Link href="/about-us" className="hover:text-white transition">About Us</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <div className="uppercase text-[10px] text-aldo-beige mb-5" style={{ letterSpacing: "0.42em" }}>
-            Contact
-          </div>
-          <ul className="space-y-3 text-sm text-aldo-muted">
-            <li className="flex items-start gap-3">
-              <MapPin className="w-4 h-4 mt-0.5 text-aldo-beige flex-shrink-0" />
-              <span>
-                {CONTACT_INFO.addressShort.map((line, i) => (
-                  <span key={i} className="block">{line}</span>
-                ))}
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <Phone className="w-4 h-4 mt-0.5 text-aldo-beige flex-shrink-0" />
-              <a href={`tel:${CONTACT_INFO.phone1.replace(/\s/g, "")}`} className="hover:text-white">
-                {CONTACT_INFO.phone1}
-              </a>
-            </li>
-            <li className="flex items-start gap-3">
-              <Mail className="w-4 h-4 mt-0.5 text-aldo-beige flex-shrink-0" />
-              <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-white">
-                {CONTACT_INFO.email}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="border-t border-[rgba(216,201,168,0.08)]">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <div className="text-xs uppercase text-aldo-muted" style={{ letterSpacing: "0.22em" }}>
-            © 2026 Aldovia Resort & Convention
-          </div>
-          <div className="text-xs uppercase text-aldo-muted" style={{ letterSpacing: "0.22em" }}>
-            {BRAND.tagline}
+          <div className="text-center text-xs text-aldo-muted/80">
+            © 2026 Aldovia. All rights reserved.
           </div>
         </div>
       </div>
