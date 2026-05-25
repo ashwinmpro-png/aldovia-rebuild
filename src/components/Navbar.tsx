@@ -5,12 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail, ChevronRight, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronRight, ChevronDown, Home } from "lucide-react";
 import { NAV_LINKS, CONTACT_INFO } from "@/lib/content";
 
 export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/" || pathname === "/home";
+  const isBubbles = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedMobile, setExpandedMobile] = useState<Record<string, boolean>>({});
@@ -80,7 +81,26 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav - HOME + BOOK NOW on bubbles page, dropdown nav elsewhere */}
+          {isBubbles ? (
+            <div className="hidden md:flex items-center gap-4">
+              <Link
+                href="/home"
+                className="inline-flex items-center gap-2 px-5 py-3 border border-aldo-beige/40 text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors"
+                style={{ letterSpacing: "0.22em" }}
+              >
+                <Home className="w-4 h-4" />
+                Home
+              </Link>
+              <Link
+                href="/contact-us"
+                className="inline-flex items-center px-6 py-3 border border-aldo-beige bg-aldo-beige text-aldo-bg text-[11px] uppercase hover:bg-transparent hover:text-aldo-cream transition-colors"
+                style={{ letterSpacing: "0.22em" }}
+              >
+                Book Now
+              </Link>
+            </div>
+          ) : (
           <nav
             className="hidden md:flex items-center gap-1 lg:gap-2"
             onMouseLeave={() => setHoverGroup(null)}
@@ -139,6 +159,7 @@ export default function Navbar() {
               );
             })}
           </nav>
+          )}
 
           {/* Mobile hamburger */}
           <button
