@@ -11,8 +11,8 @@ import {
   Plus,
   Minus,
   Play,
-  ChevronDown,
 } from "lucide-react";
+import { useTheme } from "@/lib/theme-context";
 
 // Three Escape/Celebrate/Gather cards live on a cream band. Source per ASSETS.md.
 const SIGNAL_CARDS = [
@@ -64,12 +64,15 @@ const FAQ_ITEMS = [
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const { mode } = useTheme();
+  const isNight = mode === "night";
 
   return (
     <>
-      {/* HERO with drone video + stats overlay */}
+      {/* HERO with drone video + stats overlay. Source swaps with theme. */}
       <section className="relative w-full h-screen overflow-hidden">
         <video
+          key={mode}
           autoPlay
           muted
           loop
@@ -78,7 +81,11 @@ export default function HomePage() {
           poster="/assets/hero/drone-property.jpg"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/assets/hero/home-hero-day.mp4" type="video/mp4" />
+          {isNight ? (
+            <source src="/assets/hero/home-hero-night.webm" type="video/webm" />
+          ) : (
+            <source src="/assets/hero/home-hero-day.mp4" type="video/mp4" />
+          )}
         </video>
 
         <div

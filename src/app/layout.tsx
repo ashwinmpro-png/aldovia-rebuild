@@ -5,6 +5,8 @@ import LandingScreen from "@/components/LandingScreen";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RenovationBar from "@/components/RenovationBar";
+import NightModeToggle from "@/components/NightModeToggle";
+import { ThemeProvider } from "@/lib/theme-context";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -66,11 +68,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <body className="bg-aldo-bg text-aldo-cream font-sans">
-        <LandingScreen />
-        <Navbar />
-        <RenovationBar />
-        <main>{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <LandingScreen />
+          <Navbar />
+          <RenovationBar />
+          <main>{children}</main>
+          <Footer />
+          <NightModeToggle />
+        </ThemeProvider>
       </body>
     </html>
   );
