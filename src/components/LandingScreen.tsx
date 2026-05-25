@@ -16,7 +16,10 @@ const VIDEO_MOBILE_WEBM = "/landing/landing-mobile.webm";
 const POSTER_DESKTOP = "/landing/landing-desktop.jpg";
 const POSTER_MOBILE = "/landing/landing-mobile.jpg";
 
-const FALLBACK_MS = 6500;
+// Six stitched clips run roughly 50 seconds. The safety timer trails the
+// natural video end so the landing dismisses cleanly even if the browser
+// stalls playback mid-stream. onEnded dismisses on normal completion.
+const FALLBACK_MS = 55000;
 const STORAGE_KEY = "aldovia.landingSeen";
 const MOBILE_BREAKPOINT = 768;
 
