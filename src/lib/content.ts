@@ -76,7 +76,7 @@ export const ROOMS: Room[] = [
     description:
       "Warm wood tones, muted interiors, and ceiling accents that catch the light just so. The Deluxe Room is Aldovia at its most considered: not the largest room, but the one where every detail has been thought through. A king bed, space for a small family, and the kind of quiet that makes forty minutes from Bangalore feel like a different latitude entirely.",
     images: [
-      "https://aldovia.in/assets/rooms/deluxe-room/s1.jpg",
+      "/assets/rooms/deluxe-room/hero.jpg",
       "https://aldovia.in/assets/rooms/deluxe-room/s2.jpg",
       "https://aldovia.in/assets/rooms/deluxe-room/s3.jpg",
     ],
@@ -91,7 +91,7 @@ export const ROOMS: Room[] = [
     description:
       "A step wider, a touch more generous. The Luxury Room takes everything the Deluxe offers and gives it breathing space. Upgraded furnishings, a larger work area, and a bathroom that feels like it was designed for staying in, not just passing through. For guests who want comfort without ceremony.",
     images: [
-      "https://aldovia.in/assets/rooms/luxury-room/s1.jpg",
+      "/assets/rooms/luxury-room/hero.jpg",
       "https://aldovia.in/assets/rooms/luxury-room/s2.jpg",
       "https://aldovia.in/assets/rooms/luxury-room/s3.jpg",
     ],
@@ -106,7 +106,7 @@ export const ROOMS: Room[] = [
     description:
       "A separate living area changes everything. The 1 Bedroom Suite gives you a proper room to sit in after the conference, a space to host a quiet drink, a place to spread out without feeling like you are living on the bed. One bedroom, one living room, and the sense that someone thought about how you actually use a hotel room.",
     images: [
-      "https://aldovia.in/assets/rooms/1-bedroom-suite/s1.jpg",
+      "/assets/rooms/1-bedroom-suite/hero.jpg",
       "https://aldovia.in/assets/rooms/1-bedroom-suite/s2.jpg",
       "https://aldovia.in/assets/rooms/1-bedroom-suite/s3.jpg",
     ],
@@ -121,7 +121,7 @@ export const ROOMS: Room[] = [
     description:
       "Built for families that want to be together without being on top of each other. Two bedrooms, a shared living area, and enough space for the children to claim their own territory while the adults keep theirs. The 2 Bedroom Suite turns a hotel stay into something closer to a home.",
     images: [
-      "https://aldovia.in/assets/rooms/2-bedroom-suite/s1.jpg",
+      "/assets/rooms/2-bedroom-suite/hero.jpg",
       "https://aldovia.in/assets/rooms/2-bedroom-suite/s2.jpg",
       "https://aldovia.in/assets/rooms/2-bedroom-suite/s3.jpg",
     ],
@@ -136,7 +136,7 @@ export const ROOMS: Room[] = [
     description:
       "Where the suite category begins to feel like a private residence. The Deluxe Suite pairs a generous bedroom with a living room that can double as a workspace, a meeting point, or simply a place to watch the grounds from the window. Premium furnishings, upgraded amenities, and the kind of space that makes extending your stay an easy decision.",
     images: [
-      "https://aldovia.in/assets/rooms/deluxe-suite/s1.jpg",
+      "/assets/rooms/deluxe-suite/hero.jpg",
       "https://aldovia.in/assets/rooms/deluxe-suite/s2.jpg",
       "https://aldovia.in/assets/rooms/deluxe-suite/s3.jpg",
     ],
@@ -151,7 +151,7 @@ export const ROOMS: Room[] = [
     description:
       "The best room in the house, and it knows it. The Executive Suite is for the guest who treats a hotel stay as an extension of how they live. An expansive living area, a master bedroom with every upgrade the property offers, a bathroom that borders on indulgent, and views that remind you why this resort sits where it does. For leaders, for celebrations, for people who understand that the room you stay in sets the tone for everything else.",
     images: [
-      "https://aldovia.in/assets/rooms/executive-suite/s1.jpg",
+      "/assets/rooms/executive-suite/hero.jpg",
       "https://aldovia.in/assets/rooms/executive-suite/s2.jpg",
       "https://aldovia.in/assets/rooms/executive-suite/s3.jpg",
     ],
@@ -180,7 +180,7 @@ export const DINING: Dining[] = [
     description:
       "The main restaurant at Aldovia, and the one that sets the standard. Ambrosia serves multi-cuisine fare with the kind of attention that turns a meal into a reason to come back. From authentic Indian thalis to international plates, every dish is built on fresh ingredients and a kitchen that takes pride in consistency. Breakfast, lunch, and dinner, seven days a week. The kind of restaurant a resort is judged by.",
     images: [
-      "https://aldovia.in/assets/pages/dining/day/ambrosia1.webp",
+      "/assets/dining/ambrosia/hero.jpg",
       "https://aldovia.in/assets/pages/dining/day/ambrosia2.webp",
       "https://aldovia.in/assets/pages/dining/day/ambrosia3.webp",
     ],
@@ -195,7 +195,7 @@ export const DINING: Dining[] = [
     description:
       "Bar and lounge offering handcrafted cocktails, spirits and small plates. A perfect evening companion under the open sky.",
     images: [
-      "https://aldovia.in/assets/pages/dining/day/mirage3.webp",
+      "/assets/dining/oasis/hero.jpg",
       "https://aldovia.in/assets/herobackgrounds/dining/day/banner1.webp",
       "https://aldovia.in/assets/herobackgrounds/dining/day/banner3.webp",
     ],
@@ -210,7 +210,7 @@ export const DINING: Dining[] = [
     description:
       "All-day dining restaurant with indoor and outdoor seating. Serves light meals, snacks and beverages throughout the day.",
     images: [
-      "https://aldovia.in/assets/pages/dining/day/mirage3.webp",
+      "/assets/dining/mirage/hero.jpg",
       "https://aldovia.in/assets/herobackgrounds/dining/day/banner1.webp",
       "https://aldovia.in/assets/herobackgrounds/dining/day/banner3.webp",
     ],
@@ -381,7 +381,7 @@ export const ACTIVITIES: Record<string, Activity[]> = {
       tagline: "Classic precision gameplay",
       description: "Enjoy billiards in a relaxed indoor setting perfect for strategic games and social play.",
       inclusions: ["Billiards table access", "Casual and focused play", "Indoor leisure environment"],
-      image: "https://aldovia.in/assets/pages/activities/billiards/day/billiards1.webp",
+      image: "/assets/activities/indoor/billiards.jpg",
     },
     {
       name: "Squash",
@@ -426,7 +426,7 @@ export const ACTIVITIES: Record<string, Activity[]> = {
       description:
         "Fast, friendly, and easy to learn — our pickleball court is open for casual play and tournaments.",
       inclusions: ["Court access", "Rackets & balls", "Singles or doubles"],
-      image: "https://aldovia.in/assets/pages/activities/pickleball/day/pickleball_1.webp",
+      image: "/assets/activities/outdoor/pickleball.jpg",
     },
   ],
   "Health & Wellness Spa": [
@@ -435,7 +435,7 @@ export const ACTIVITIES: Record<string, Activity[]> = {
       tagline: "Traditional healing",
       description: "Ayurvedic therapies rooted in tradition, performed by trained therapists for deep restoration.",
       inclusions: ["Abhyanga, Shirodhara", "Herbal oils & blends", "Private treatment rooms"],
-      image: "https://aldovia.in/assets/pages/activities/spa/day/spa5.webp",
+      image: "/assets/activities/spa/ayurvedic-therapies.jpg",
     },
     {
       name: "Couples Spa",
@@ -607,9 +607,9 @@ export const VENUES: Venue[] = [
     description:
       "A purpose-built pillar-less convention venue crafted for large gatherings, industry expos, and high-impact conferences with seamless service and scale. Equipped with state-of-the-art audiovisual systems, flexible seating configurations, and dedicated function space. The hall connects to premium dining areas and hospitality zones, ensuring all attendees experience comfort alongside functionality.",
     images: [
-      "https://aldovia.in/assets/herobackgrounds/convention/day/image1.webp",
-      "https://aldovia.in/assets/herobackgrounds/convention/day/image2.webp",
-      "https://aldovia.in/assets/herobackgrounds/convention/day/image3.webp",
+      "/assets/venues/ocean-convention-center/hero.jpg",
+      "/assets/venues/ocean-convention-center/g1.jpg",
+      "/assets/venues/ocean-convention-center/g2.jpg",
     ],
   },
 ];
