@@ -5,12 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, BedDouble, UtensilsCrossed, Users, Award, Phone } from "lucide-react";
-import Carousel from "@/components/Carousel";
+import HeroVideo from "@/components/HeroVideo";
 import SectionHeader from "@/components/SectionHeader";
 import { ButtonLink } from "@/components/Button";
 import Container from "@/components/Container";
 import {
-  HOME_HERO_IMAGES,
   ABOUT_STATS,
   ROOMS,
   DINING,
@@ -39,7 +38,12 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <Carousel images={HOME_HERO_IMAGES} interval={7000} heightClass="h-screen" priority>
+      <HeroVideo
+        src="/assets/hero/drone-property.mp4"
+        poster="/assets/hero/drone-property.jpg"
+        heightClass="h-screen"
+        objectPosition="50% 65%"
+      >
         <div className="relative z-10 h-full flex flex-col items-center justify-center pb-12 px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -77,7 +81,7 @@ export default function HomePage() {
             <ButtonLink href="/about-us" variant="outline">Discover Aldovia</ButtonLink>
           </motion.div>
         </div>
-      </Carousel>
+      </HeroVideo>
 
       {/* STORY */}
       <section className="py-24 md:py-32 px-6">
