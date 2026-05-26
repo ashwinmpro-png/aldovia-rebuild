@@ -109,3 +109,17 @@ img {
     transform: translateX(-50%);
   }
 }
+
+/* Outline pill that flips to a filled brown pill on hover.
+   Used by the Gallery button on /rooms/<slug> detail pages and any
+   server-rendered outline CTA where inline onMouseEnter handlers are
+   forbidden by the Server-to-Client boundary. */
+.room-detail-gallery-link {
+  border: 1px solid var(--color-brown-text);
+  color: var(--color-brown-text);
+  background: transparent;
+}
+.room-detail-gallery-link:hover {
+  background: var(--color-brown-text);
+  color: var(--color-cream-bg);
+}

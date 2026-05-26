@@ -106,33 +106,16 @@ export function RoomDetail({ room }: { room: Room }) {
               <Link
                 href="/contact-us"
                 prefetch={false}
-                className="font-fraunces inline-flex h-12 items-center justify-center rounded-full px-7 text-[14px] hover:opacity-90 transition-opacity"
-                style={{
-                  background: "var(--color-brown-text)",
-                  color: "var(--color-cream-bg)",
-                  letterSpacing: "0.02em",
-                }}
+                className="font-fraunces inline-flex h-12 items-center justify-center rounded-full px-7 text-[14px] bg-brown-text text-cream-bg hover:opacity-90 transition-opacity"
+                style={{ letterSpacing: "0.02em" }}
               >
                 Book Your Stay
               </Link>
               <Link
                 href={`/rooms/${room.id}#gallery`}
                 prefetch={false}
-                className="font-fraunces inline-flex h-12 items-center justify-center rounded-full px-7 text-[14px] transition-colors"
-                style={{
-                  border: "1px solid var(--color-brown-text)",
-                  color: "var(--color-brown-text)",
-                  background: "transparent",
-                  letterSpacing: "0.02em",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "var(--color-brown-text)";
-                  e.currentTarget.style.color = "var(--color-cream-bg)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "var(--color-brown-text)";
-                }}
+                className="room-detail-gallery-link font-fraunces inline-flex h-12 items-center justify-center rounded-full px-7 text-[14px] transition-colors"
+                style={{ letterSpacing: "0.02em" }}
               >
                 Gallery
               </Link>
