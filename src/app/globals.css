@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Deep palette — used for hero video overlays, dark accent cards, the
-     bubbles navigator. */
+  /* Deep palette — heroes, dark accent cards, the bubbles navigator */
   --color-aldo-bg: #0e0d0b;
   --color-aldo-bg-2: #161410;
   --color-aldo-beige: #d8c9a8;
@@ -12,16 +11,27 @@
   --color-aldo-cream: #f3ead4;
   --color-aldo-muted: #a89976;
 
-  /* Cream paper — the default page surface, matching the live site.
-     Every page that does not explicitly set a dark hero lives on this. */
-  --color-paper: #efe6cf;
-  --color-paper-2: #f5ecd4;
-  --color-paper-3: #ece2c1;
-  --color-ink: #2d1f14;
-  --color-ink-mute: #5a4a3a;
-  --color-ink-soft: #7a6a52;
+  /* Cream paper palette — canonical from the Emergent push, matches the live */
+  --color-cream-bg: #f4ecd4;
+  --color-cream-bg-2: #ebe1c4;
+  --color-cream-bg-3: #e3d8b4;
+  --color-brown-dark: #2a1b0e;
+  --color-brown-text: #3d2817;
+  --color-brown-soft: #6b4d2e;
+  --color-olive: #8a7a3f;
+  --color-gold: #c4a05a;
+  --color-banner-bg: #3d2817;
+
+  /* Legacy paper/ink aliases used in Stage B - kept for compatibility */
+  --color-paper: #f4ecd4;
+  --color-paper-2: #ebe1c4;
+  --color-paper-3: #e3d8b4;
+  --color-ink: #3d2817;
+  --color-ink-mute: #6b4d2e;
+  --color-ink-soft: #8a7a3f;
 
   --font-display: var(--font-cormorant), Georgia, serif;
+  --font-fraunces: var(--font-fraunces-google), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
 
   --tracking-eyebrow: 0.42em;
@@ -33,13 +43,18 @@
 
 html,
 body {
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--color-cream-bg);
+  color: var(--color-brown-text);
   font-family: var(--font-sans);
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
+}
+
+.font-fraunces {
+  font-family: var(--font-fraunces);
+  font-optical-sizing: auto;
 }
 
 img {
@@ -84,4 +99,13 @@ img {
 
 .fade-in {
   animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes aldo-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

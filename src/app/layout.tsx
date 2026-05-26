@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import LandingScreen from "@/components/LandingScreen";
 import Navbar from "@/components/Navbar";
@@ -19,6 +19,14 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces-google",
   display: "swap",
 });
 
@@ -66,8 +74,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
-      <body className="bg-paper text-ink font-sans">
+    <html lang="en" className={`${cormorant.variable} ${inter.variable} ${fraunces.variable}`}>
+      <body className="bg-cream-bg text-brown-text font-sans">
         <ThemeProvider>
           <LandingScreen />
           <Navbar />
