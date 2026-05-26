@@ -134,14 +134,14 @@ export default function HomePage() {
           >
             <Link
               href="/rooms"
-              className="inline-flex items-center gap-2 px-8 py-[14px] bg-aldo-beige text-aldo-bg text-[11px] uppercase border border-aldo-beige hover:bg-transparent hover:text-aldo-cream transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-[14px] bg-aldo-beige text-aldo-bg text-[11px] uppercase border border-aldo-beige hover:bg-transparent hover:text-aldo-cream transition-colors rounded-full"
               style={{ letterSpacing: "0.22em" }}
             >
               Book Your Stay <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="#explore"
-              className="inline-flex items-center gap-2 px-8 py-[14px] border border-aldo-beige text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-[14px] border border-aldo-beige text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors rounded-full"
               style={{ letterSpacing: "0.22em" }}
             >
               Explore the Resort
@@ -271,7 +271,7 @@ export default function HomePage() {
                 </p>
                 <a
                   href="#virtual-tour"
-                  className="mt-8 inline-flex items-center px-8 py-[14px] bg-aldo-cream text-aldo-bg text-[11px] uppercase hover:bg-aldo-beige transition-colors"
+                  className="mt-8 inline-flex items-center px-8 py-[14px] bg-aldo-cream text-aldo-bg text-[11px] uppercase hover:bg-aldo-beige transition-colors rounded-full"
                   style={{ letterSpacing: "0.22em" }}
                 >
                   Enter Virtual Tour
@@ -397,14 +397,14 @@ export default function HomePage() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact-us"
-              className="inline-flex items-center gap-2 px-8 py-[14px] bg-[#3d2817] text-aldo-beige text-[11px] uppercase hover:bg-[#5a3e25] transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-[14px] bg-[#3d2817] text-aldo-beige text-[11px] uppercase hover:bg-[#5a3e25] transition-colors rounded-full"
               style={{ letterSpacing: "0.22em" }}
             >
               Check Availability <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/wedding"
-              className="inline-flex items-center px-8 py-[14px] border border-[#3d2817] text-[#3d2817] text-[11px] uppercase hover:bg-[#3d2817] hover:text-aldo-beige transition-colors"
+              className="inline-flex items-center px-8 py-[14px] border border-[#3d2817] text-[#3d2817] text-[11px] uppercase hover:bg-[#3d2817] hover:text-aldo-beige transition-colors rounded-full"
               style={{ letterSpacing: "0.22em" }}
             >
               Plan Your Event

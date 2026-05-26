@@ -14,7 +14,7 @@ type SharedProps = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 uppercase font-sans text-[11px] px-8 py-[14px] border transition-colors duration-300 cursor-pointer";
+  "inline-flex items-center justify-center gap-2 uppercase font-sans text-[11px] px-8 py-[14px] border rounded-full transition-colors duration-300 cursor-pointer";
 
 const variants: Record<Variant, string> = {
   solid:

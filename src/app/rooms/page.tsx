@@ -205,14 +205,14 @@ export default function RoomsPage() {
                     >
                       <Link
                         href="/contact-us"
-                        className="inline-flex items-center gap-2 px-7 py-[14px] bg-aldo-beige text-aldo-bg text-[11px] uppercase border border-aldo-beige hover:bg-transparent hover:text-aldo-cream transition-colors"
+                        className="inline-flex items-center gap-2 px-7 py-[14px] bg-aldo-beige text-aldo-bg text-[11px] uppercase border border-aldo-beige hover:bg-transparent hover:text-aldo-cream transition-colors rounded-full"
                         style={{ letterSpacing: "0.22em" }}
                       >
                         Book Your Stay <ArrowRight className="w-4 h-4" />
                       </Link>
                       <a
                         href={`#${room.id}-gallery`}
-                        className="inline-flex items-center gap-2 px-7 py-[14px] border border-aldo-beige/60 text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors"
+                        className="inline-flex items-center gap-2 px-7 py-[14px] border border-aldo-beige/60 text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors rounded-full"
                         style={{ letterSpacing: "0.22em" }}
                       >
                         <Images className="w-4 h-4" />
@@ -246,14 +246,14 @@ export default function RoomsPage() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact-us"
-              className="inline-flex items-center gap-2 px-8 py-[14px] bg-aldo-beige text-aldo-bg text-[11px] uppercase border border-aldo-beige hover:bg-transparent hover:text-aldo-cream transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-[14px] bg-aldo-beige text-aldo-bg text-[11px] uppercase border border-aldo-beige hover:bg-transparent hover:text-aldo-cream transition-colors rounded-full"
               style={{ letterSpacing: "0.22em" }}
             >
               Check Availability <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/experience"
-              className="inline-flex items-center px-8 py-[14px] border border-aldo-beige/60 text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors"
+              className="inline-flex items-center px-8 py-[14px] border border-aldo-beige/60 text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors rounded-full"
               style={{ letterSpacing: "0.22em" }}
             >
               Explore Packages

@@ -86,7 +86,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-4">
               <Link
                 href="/home"
-                className="inline-flex items-center gap-2 px-5 py-3 border border-aldo-beige/40 text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 border border-aldo-beige/40 text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors rounded-full"
                 style={{ letterSpacing: "0.22em" }}
               >
                 <Home className="w-4 h-4" />
@@ -94,7 +94,7 @@ export default function Navbar() {
               </Link>
               <Link
                 href="/contact-us"
-                className="inline-flex items-center px-6 py-3 border border-aldo-beige bg-aldo-beige text-aldo-bg text-[11px] uppercase hover:bg-transparent hover:text-aldo-cream transition-colors"
+                className="inline-flex items-center px-6 py-3 border border-aldo-beige bg-aldo-beige text-aldo-bg text-[11px] uppercase hover:bg-transparent hover:text-aldo-cream transition-colors rounded-full"
                 style={{ letterSpacing: "0.22em" }}
               >
                 Book Now
@@ -117,7 +117,7 @@ export default function Navbar() {
                 >
                   {hasChildren ? (
                     <button
-                      className="px-4 lg:px-5 py-3 text-[11px] uppercase text-aldo-cream hover:text-white inline-flex items-center gap-1 cursor-pointer"
+                      className="px-4 lg:px-5 py-3 text-[11px] uppercase text-aldo-cream hover:text-white inline-flex items-center gap-1 cursor-pointer rounded-full"
                       style={{ letterSpacing: "0.22em" }}
                     >
                       {link.label}
