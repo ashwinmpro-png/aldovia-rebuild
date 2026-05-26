@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { RoomDetail } from "@/components/RoomDetail";
-import { ROOMS } from "@/lib/content";
-
-const ROOM_ID = "luxury-room";
+import { html } from "@/content/rendered/rooms__luxury-room";
 
 export const metadata: Metadata = {
   title: "Luxury Room",
   description:
     "A step wider, a touch more generous. The Luxury Room at Aldovia takes everything the Deluxe offers and gives it breathing space.",
+  alternates: { canonical: "https://aldovia.in/rooms/luxury-room" },
 };
 
 export default function Page() {
-  const room = ROOMS.find((r) => r.id === ROOM_ID);
-  if (!room) notFound();
-  return <RoomDetail room={room} />;
+  return <RoomDetail html={html} />;
 }
