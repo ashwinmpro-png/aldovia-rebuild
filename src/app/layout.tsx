@@ -67,7 +67,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
-      <body className="bg-aldo-bg text-aldo-cream font-sans">
+      <body className="bg-paper text-ink font-sans">
         <ThemeProvider>
           <LandingScreen />
           <Navbar />

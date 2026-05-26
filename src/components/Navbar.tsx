@@ -39,6 +39,12 @@ export default function Navbar() {
     setExpandedMobile((prev) => ({ ...prev, [label]: !prev[label] }));
 
   const condensed = scrolled || !isHome;
+  // On cream pages when navbar has condensed onto cream background, text flips dark.
+  // Over hero (transparent) or on bubbles page, text stays light.
+  const navInk = condensed && !isBubbles;
+  const linkText = navInk ? "text-ink" : "text-aldo-cream";
+  const linkHover = navInk ? "hover:text-ink/70" : "hover:text-white";
+  const subtleBorder = navInk ? "border-ink/30" : "border-aldo-beige/40";
 
   return (
     <>
@@ -62,12 +68,22 @@ export default function Navbar() {
 
       <motion.header
         animate={{
-          backgroundColor: condensed ? "rgba(14,13,11,0.92)" : "rgba(14,13,11,0)",
+          backgroundColor: condensed
+            ? isBubbles
+              ? "rgba(14,13,11,0.92)"
+              : "rgba(245,236,212,0.96)"
+            : "rgba(14,13,11,0)",
           backdropFilter: condensed ? "blur(12px)" : "blur(0px)",
         }}
         transition={{ duration: 0.4 }}
         className="fixed left-0 right-0 z-40 md:top-[34px] top-0 border-b"
-        style={{ borderColor: condensed ? "rgba(216,201,168,0.08)" : "transparent" }}
+        style={{
+          borderColor: condensed
+            ? isBubbles
+              ? "rgba(216,201,168,0.08)"
+              : "rgba(45,31,20,0.08)"
+            : "transparent",
+        }}
       >
         <div className="flex items-center justify-between px-6 md:px-10 py-3">
           <Link href="/home" aria-label="Aldovia home" className="block relative w-[110px] h-[72px] md:w-[140px] md:h-[90px]">
@@ -86,7 +102,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-4">
               <Link
                 href="/home"
-                className="inline-flex items-center gap-2 px-5 py-3 border border-aldo-beige/40 text-aldo-cream text-[11px] uppercase hover:bg-aldo-beige hover:text-aldo-bg transition-colors rounded-full"
+                className={`inline-flex items-center gap-2 px-5 py-3 border text-[11px] uppercase transition-colors rounded-full ${subtleBorder} ${linkText} hover:bg-aldo-beige hover:text-aldo-bg`}
                 style={{ letterSpacing: "0.22em" }}
               >
                 <Home className="w-4 h-4" />
@@ -117,7 +133,7 @@ export default function Navbar() {
                 >
                   {hasChildren ? (
                     <button
-                      className="px-4 lg:px-5 py-3 text-[11px] uppercase text-aldo-cream hover:text-white inline-flex items-center gap-1 cursor-pointer rounded-full"
+                      className={`px-4 lg:px-5 py-3 text-[11px] uppercase inline-flex items-center gap-1 cursor-pointer rounded-full ${linkText} ${linkHover}`}
                       style={{ letterSpacing: "0.22em" }}
                     >
                       {link.label}
@@ -126,7 +142,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={link.path ?? "/home"}
-                      className="block px-4 lg:px-5 py-3 text-[11px] uppercase text-aldo-cream hover:text-white"
+                      className={`block px-4 lg:px-5 py-3 text-[11px] uppercase ${linkText} ${linkHover}`}
                       style={{ letterSpacing: "0.22em" }}
                     >
                       {link.label}
@@ -140,13 +156,13 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
                         transition={{ duration: 0.18 }}
-                        className="absolute left-1/2 -translate-x-1/2 top-full mt-1 min-w-[220px] bg-[rgba(14,13,11,0.97)] backdrop-blur-md border border-[rgba(216,201,168,0.15)] py-3"
+                        className={`absolute left-1/2 -translate-x-1/2 top-full mt-1 min-w-[220px] backdrop-blur-md border py-3 ${navInk ? "bg-[rgba(245,236,212,0.98)] border-ink/15" : "bg-[rgba(14,13,11,0.97)] border-[rgba(216,201,168,0.15)]"}`}
                       >
                         {link.children!.map((c) => (
                           <Link
                             key={c.label}
                             href={c.path}
-                            className="block px-6 py-2.5 text-[12px] uppercase text-aldo-muted hover:text-white hover:bg-aldo-beige/5 transition-colors"
+                            className={`block px-6 py-2.5 text-[12px] uppercase transition-colors ${navInk ? "text-ink-mute hover:text-ink hover:bg-ink/5" : "text-aldo-muted hover:text-white hover:bg-aldo-beige/5"}`}
                             style={{ letterSpacing: "0.22em" }}
                           >
                             {c.label}

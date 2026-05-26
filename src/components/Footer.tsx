@@ -52,17 +52,18 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0a0907] border-t border-[rgba(216,201,168,0.08)]">
+    <footer className="bg-paper-2 border-t border-ink/10">
       <div className="max-w-7xl mx-auto px-6 md:px-10 pt-20 pb-10">
-        {/* Big centered wordmark */}
+        {/* Big centred wordmark */}
         <div className="flex justify-center mb-16">
           <div className="relative w-[280px] h-[180px] md:w-[360px] md:h-[230px]">
             <Image
-              src="/brand/logo-cream.png"
+              src="/brand/logo-beige.png"
               alt="Aldovia Resort & Convention"
               fill
               sizes="(max-width: 768px) 280px, 360px"
               className="object-contain"
+              style={{ filter: "brightness(0.4) sepia(0.3)" }}
             />
           </div>
         </div>
@@ -71,16 +72,16 @@ export default function Footer() {
           {columns.map((col) => (
             <div key={col.heading}>
               <div
-                className="uppercase text-[11px] mb-4 text-aldo-cream font-medium"
+                className="uppercase text-[11px] mb-4 text-ink font-medium"
                 style={{ letterSpacing: "0.2em" }}
               >
                 {col.heading}
               </div>
-              <div className="w-8 h-px bg-aldo-beige/40 mb-5" />
-              <ul className="space-y-3 text-sm text-aldo-muted">
+              <div className="w-8 h-px bg-ink/30 mb-5" />
+              <ul className="space-y-3 text-sm text-ink-mute">
                 {col.items.map((it) => (
                   <li key={it.label}>
-                    <Link href={it.href} className="hover:text-white transition">
+                    <Link href={it.href} className="hover:text-ink transition">
                       {it.label}
                     </Link>
                   </li>
@@ -91,32 +92,32 @@ export default function Footer() {
 
           <div>
             <div
-              className="uppercase text-[11px] mb-4 text-aldo-cream font-medium"
+              className="uppercase text-[11px] mb-4 text-ink font-medium"
               style={{ letterSpacing: "0.2em" }}
             >
               Contact
             </div>
-            <div className="w-8 h-px bg-aldo-beige/40 mb-5" />
-            <ul className="space-y-4 text-sm text-aldo-muted">
+            <div className="w-8 h-px bg-ink/30 mb-5" />
+            <ul className="space-y-4 text-sm text-ink-mute">
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 mt-0.5 text-aldo-beige flex-shrink-0" />
+                <Phone className="w-4 h-4 mt-0.5 text-ink flex-shrink-0" />
                 <div>
-                  <a href={`tel:${CONTACT_INFO.phone1.replace(/\s/g, "")}`} className="block hover:text-white">
+                  <a href={`tel:${CONTACT_INFO.phone1.replace(/\s/g, "")}`} className="block hover:text-ink">
                     {CONTACT_INFO.phone1} ({CONTACT_INFO.phone1Label})
                   </a>
-                  <a href={`tel:${CONTACT_INFO.phone2.replace(/\s/g, "")}`} className="block hover:text-white">
+                  <a href={`tel:${CONTACT_INFO.phone2.replace(/\s/g, "")}`} className="block hover:text-ink">
                     {CONTACT_INFO.phone2} ({CONTACT_INFO.phone2Label})
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 mt-0.5 text-aldo-beige flex-shrink-0" />
-                <a href={`mailto:${CONTACT_INFO.email}`} className="underline underline-offset-4 hover:text-white">
+                <Mail className="w-4 h-4 mt-0.5 text-ink flex-shrink-0" />
+                <a href={`mailto:${CONTACT_INFO.email}`} className="underline underline-offset-4 hover:text-ink">
                   {CONTACT_INFO.email}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 mt-0.5 text-aldo-beige flex-shrink-0" />
+                <MapPin className="w-4 h-4 mt-0.5 text-ink flex-shrink-0" />
                 <span>
                   {CONTACT_INFO.addressShort.map((line, i) => (
                     <span key={i} className="block">{line}</span>
@@ -127,9 +128,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-[rgba(216,201,168,0.08)] pt-8">
+        <div className="mt-16 border-t border-ink/10 pt-8">
           <div
-            className="text-center uppercase text-[11px] text-aldo-muted mb-6"
+            className="text-center uppercase text-[11px] text-ink-soft mb-6"
             style={{ letterSpacing: "0.32em" }}
           >
             {BRAND.former}
@@ -143,14 +144,14 @@ export default function Footer() {
                 aria-label={label}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="w-9 h-9 rounded-full bg-aldo-beige/10 text-aldo-cream flex items-center justify-center hover:bg-aldo-beige hover:text-aldo-bg transition-colors"
+                className="w-9 h-9 rounded-full bg-ink/10 text-ink flex items-center justify-center hover:bg-ink hover:text-paper transition-colors"
               >
                 <Icon className="w-4 h-4" />
               </a>
             ))}
           </div>
 
-          <div className="text-center text-xs text-aldo-muted/80">
+          <div className="text-center text-xs text-ink-soft">
             © 2026 Aldovia. All rights reserved.
           </div>
         </div>
