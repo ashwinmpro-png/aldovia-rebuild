@@ -80,8 +80,8 @@ export const ROOMS: Room[] = [
       "Warm wood tones, muted interiors, and ceiling accents that catch the light just so. The Deluxe Room is Aldovia at its most considered: not the largest room, but the one where every detail has been thought through. A king bed, space for a small family, and the kind of quiet that makes forty minutes from Bangalore feel like a different latitude entirely.",
     images: [
       "/assets/rooms/deluxe-room/hero.jpg",
-      "https://aldovia.in/assets/rooms/deluxe-room/s2.jpg",
-      "https://aldovia.in/assets/rooms/deluxe-room/s3.jpg",
+      "/assets/rooms/deluxe-room/hero.jpg",
+      "/assets/rooms/deluxe-room/hero.jpg",
     ],
   },
   {
@@ -95,8 +95,8 @@ export const ROOMS: Room[] = [
       "A step wider, a touch more generous. The Luxury Room takes everything the Deluxe offers and gives it breathing space. Upgraded furnishings, a larger work area, and a bathroom that feels like it was designed for staying in, not just passing through. For guests who want comfort without ceremony.",
     images: [
       "/assets/rooms/luxury-room/hero.jpg",
-      "https://aldovia.in/assets/rooms/luxury-room/s2.jpg",
-      "https://aldovia.in/assets/rooms/luxury-room/s3.jpg",
+      "/assets/rooms/luxury-room/hero.jpg",
+      "/assets/rooms/luxury-room/hero.jpg",
     ],
   },
   {
@@ -110,8 +110,8 @@ export const ROOMS: Room[] = [
       "A separate living area changes everything. The 1 Bedroom Suite gives you a proper room to sit in after the conference, a space to host a quiet drink, a place to spread out without feeling like you are living on the bed. One bedroom, one living room, and the sense that someone thought about how you actually use a hotel room.",
     images: [
       "/assets/rooms/1-bedroom-suite/hero.jpg",
-      "https://aldovia.in/assets/rooms/1-bedroom-suite/s2.jpg",
-      "https://aldovia.in/assets/rooms/1-bedroom-suite/s3.jpg",
+      "/assets/rooms/1-bedroom-suite/hero.jpg",
+      "/assets/rooms/1-bedroom-suite/hero.jpg",
     ],
   },
   {
@@ -125,8 +125,8 @@ export const ROOMS: Room[] = [
       "Built for families that want to be together without being on top of each other. Two bedrooms, a shared living area, and enough space for the children to claim their own territory while the adults keep theirs. The 2 Bedroom Suite turns a hotel stay into something closer to a home.",
     images: [
       "/assets/rooms/2-bedroom-suite/hero.jpg",
-      "https://aldovia.in/assets/rooms/2-bedroom-suite/s2.jpg",
-      "https://aldovia.in/assets/rooms/2-bedroom-suite/s3.jpg",
+      "/assets/rooms/2-bedroom-suite/hero.jpg",
+      "/assets/rooms/2-bedroom-suite/hero.jpg",
     ],
   },
   {
@@ -140,8 +140,8 @@ export const ROOMS: Room[] = [
       "Where the suite category begins to feel like a private residence. The Deluxe Suite pairs a generous bedroom with a living room that can double as a workspace, a meeting point, or simply a place to watch the grounds from the window. Premium furnishings, upgraded amenities, and the kind of space that makes extending your stay an easy decision.",
     images: [
       "/assets/rooms/deluxe-suite/hero.jpg",
-      "https://aldovia.in/assets/rooms/deluxe-suite/s2.jpg",
-      "https://aldovia.in/assets/rooms/deluxe-suite/s3.jpg",
+      "/assets/rooms/deluxe-suite/hero.jpg",
+      "/assets/rooms/deluxe-suite/hero.jpg",
     ],
   },
   {
@@ -155,8 +155,8 @@ export const ROOMS: Room[] = [
       "The best room in the house, and it knows it. The Executive Suite is for the guest who treats a hotel stay as an extension of how they live. An expansive living area, a master bedroom with every upgrade the property offers, a bathroom that borders on indulgent, and views that remind you why this resort sits where it does. For leaders, for celebrations, for people who understand that the room you stay in sets the tone for everything else.",
     images: [
       "/assets/rooms/executive-suite/hero.jpg",
-      "https://aldovia.in/assets/rooms/executive-suite/s2.jpg",
-      "https://aldovia.in/assets/rooms/executive-suite/s3.jpg",
+      "/assets/rooms/executive-suite/hero.jpg",
+      "/assets/rooms/executive-suite/hero.jpg",
     ],
   },
 ];
