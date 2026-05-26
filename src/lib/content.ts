@@ -152,7 +152,7 @@ export const ROOMS: Room[] = [
   },
   {
     id: "executive-suite",
-    name: "Executive Suite",
+    name: "Presidential Suite",
     kicker: "The best room in the house, and it knows it",
     category: "Suite",
     size: "1846 sq. ft.",

@@ -106,16 +106,22 @@ export function RoomPillBar({ activeId }: { activeId: string }) {
               prefetch={false}
               role="tab"
               aria-selected={isActive}
-              className={
-                isActive
-                  ? "font-fraunces whitespace-nowrap text-[15px] md:text-[16px]"
-                  : "uppercase whitespace-nowrap text-[11px] md:text-[12px] transition-colors hover:opacity-90"
-              }
-              style={
-                isActive
-                  ? { color: "var(--color-brown-text)", fontWeight: 400 }
-                  : { color: "var(--color-brown-soft)", letterSpacing: "0.16em" }
-              }
+              className="font-fraunces whitespace-nowrap text-[14px] md:text-[15px] px-5 md:px-7 py-2.5 md:py-3 rounded-full transition-colors"
+              style={{
+                background: isActive ? "var(--color-banner-bg)" : "transparent",
+                color: isActive
+                  ? "var(--color-cream-bg)"
+                  : "var(--color-brown-text)",
+                fontWeight: 400,
+              }}
+              onMouseEnter={(e) => {
+                if (isActive) return;
+                e.currentTarget.style.background = "rgba(61,40,23,0.08)";
+              }}
+              onMouseLeave={(e) => {
+                if (isActive) return;
+                e.currentTarget.style.background = "transparent";
+              }}
             >
               {room.name}
             </Link>
