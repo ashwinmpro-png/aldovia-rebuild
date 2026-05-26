@@ -50,7 +50,7 @@ export default function RoomsPage() {
           {ROOMS.map((room) => (
             <Link
               key={room.id}
-              href="/contact-us"
+              href={`/rooms/${room.id}`}
               prefetch={false}
               className="group block overflow-hidden rounded-2xl transition-shadow"
               style={{

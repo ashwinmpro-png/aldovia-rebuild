@@ -60,6 +60,7 @@ export const CONTACT_INFO = {
 export type Room = {
   id: string;
   name: string;
+  kicker: string;
   category: "Room" | "Suite";
   size: string;
   occupancy: string;
@@ -72,6 +73,7 @@ export const ROOMS: Room[] = [
   {
     id: "deluxe-room",
     name: "Deluxe Room",
+    kicker: "Warm wood, garden views",
     category: "Room",
     size: "350 - 412 sq. ft.",
     occupancy: "3 guests",
@@ -87,6 +89,7 @@ export const ROOMS: Room[] = [
   {
     id: "luxury-room",
     name: "Luxury Room",
+    kicker: "A touch more generous",
     category: "Room",
     size: "350 sq. ft.",
     occupancy: "3 guests",
@@ -102,6 +105,7 @@ export const ROOMS: Room[] = [
   {
     id: "1-bedroom-suite",
     name: "1 Bedroom Suite",
+    kicker: "Suite living, separated",
     category: "Suite",
     size: "532 sq. ft.",
     occupancy: "3 guests",
@@ -117,6 +121,7 @@ export const ROOMS: Room[] = [
   {
     id: "2-bedroom-suite",
     name: "2 Bedroom Suite",
+    kicker: "For the longer story",
     category: "Suite",
     size: "730 sq. ft.",
     occupancy: "6 guests",
@@ -132,6 +137,7 @@ export const ROOMS: Room[] = [
   {
     id: "deluxe-suite",
     name: "Deluxe Suite",
+    kicker: "Generous, with a viewing seat",
     category: "Suite",
     size: "620 sq. ft.",
     occupancy: "3 guests",
@@ -147,6 +153,7 @@ export const ROOMS: Room[] = [
   {
     id: "executive-suite",
     name: "Executive Suite",
+    kicker: "The best room in the house, and it knows it",
     category: "Suite",
     size: "1846 sq. ft.",
     occupancy: "4 guests",
